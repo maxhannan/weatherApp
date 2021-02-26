@@ -1,0 +1,25 @@
+@use 'reset'
+// variables
+$gray: #253237
+$powder:#c2dfe3
+$cadet: #5c6b73
+
+#app
+  background-color: $cadet
+  height: 100vh
+  width: 100vw
+  display: flex 
+  align-items: center
+  justify-content: center
+  //loading icon
+  #snow
+    animation: spin 5s linear infinite
+    color: $powder
+    font-size: 7vh
+
+// loader animation
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
