@@ -30,7 +30,7 @@ header
   display: flex
   font-size: 35px
   align-items: center
-  // animation: spin 7s linear 0s infinite
+  animation: spin 7s linear 0s infinite
   color: #ec6e4c
 
 main
@@ -81,25 +81,27 @@ h2
   color: $text
   animation: appear 1000ms cubic-bezier(.6,-0.19,.76,1.4)
 
-  #sevenDay
-    width: 25%
+#sevenDay
+  width: 25%
+  font-size: 3.5vh
 
-  #sevenHiLo
-    width: 30%
+#sevenHiLo
+  width: 30%
+  font-size: 3.5vh
 
-  #descripW
-    color: #ec6e4c
-    width: 40%
+#descripW
+  color: #ec6e4c
+  width: 40%
+  font-size: 3.5vh
 
-  #sevenDay, #sevenHiLo, #sevenicon, #descripW
-    align-items: center
-    justify-content: center
+#sevenDay, #sevenHiLo, #sevenicon, #descripW
+  align-items: center
+  justify-content: center
+  
+#iconW
+  max-height: 50px
 
-  #iconW
-    max-height: 50px
 
-  h3
-    font-size: 3vh
 
 
 @keyframes appear
@@ -147,7 +149,15 @@ h2
     width: 100%
   #descripW
     display: none
-
+  #sevenDay
+    font-size: 3vh
+    width: 8%
+ 
   #sevenHiLo
     margin: auto
+    display: flex
+    justify-content: center
+    font-size: 3vh
+    width: 100%
+ 
 
