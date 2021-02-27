@@ -15,7 +15,7 @@ const renderForecast = (weatherData) => {
   const hiC = weatherData.sevenDay[0].highC
   const loF = weatherData.sevenDay[0].lowF
   const loC = weatherData.sevenDay[0].lowC
-  
+
   forecastContainer.innerHTML = `
   <br>
   <div id="tempContainer">
@@ -79,7 +79,7 @@ const renderSevenDayForecast = async (weatherData) => {
   }
 }
 // handles unit change
-const handleChange = async(e) => {
+const handleChange = async (e) => {
   console.log(e.target)
   const changers = document.querySelectorAll('.changer')
   changers.forEach(changer => changer.classList.toggle('hiddenTemp'))
