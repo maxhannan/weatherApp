@@ -1,6 +1,9 @@
 # Project Title
 
-One Paragraph of project description goes here
+A weather app built with modular es6 Js, and sass.
+
+Live at (https://substanceseven.com/weatherApp/)
+
 
 ## Getting Started
 
