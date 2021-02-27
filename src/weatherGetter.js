@@ -1,7 +1,7 @@
 import getName from './geoCode'
 
 const apiKey = '070d5b93cd86e7baa71b2a5bf2276467'
-let lat,lon
+let lat, lon
 const initalCall = async (city) => {
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`
   const response = await fetch(url, { mode: 'cors' })
@@ -19,16 +19,9 @@ const oneCall = async (coords) => {
 }
 
 const getWeather = async (city) => {
-  let info, name
+  const info = await initalCall(city)
+  const name = await getName(lat, lon)
 
-  try {
-    info = await initalCall(city)
-    name = await getName(lat, lon)
-  } catch (error) {
-    console.warn('Something Went wrong with the weatherGetter.js functions')
-    console.log(error)
-    return
-  }
   const current = info.current
   const sevenDayForecast = info.daily.map(day => {
     const dayinfo = {
@@ -37,7 +30,8 @@ const getWeather = async (city) => {
       lowC: toCelsius(day.temp.min),
       highF: toFahrenheit(day.temp.max),
       lowF: toFahrenheit(day.temp.min),
-      weather: day.weather
+      descrip: day.weather[0].description,
+      iconSrc: getIconURL(day.weather[0].icon)
     }
     return dayinfo
   }).slice(1, 8)
@@ -54,7 +48,9 @@ const getWeather = async (city) => {
       windDir: current.wind_deg,
       sunrise: getDay(current.sunrise).toLocaleTimeString(),
       humidity: current.humidity,
-      descrip: current.weather
+      descrip: current.weather[0].description,
+      iconSrc: getIconURL(current.weather[0].icon)
+
     },
     sevenDay: [...sevenDayForecast]
   }
@@ -66,5 +62,8 @@ const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday
 const toCelsius = (K) => Math.floor(K - 273.15)
 const toFahrenheit = (K) => Math.floor(toCelsius(K) * (9 / 5) + 32)
 const getDay = (date) => new Date(date * 1000)
-
+const getIconURL = (iconId) => {
+  const url = `http://openweathermap.org/img/wn/${iconId}@4x.png`
+  return url
+}
 export default getWeather

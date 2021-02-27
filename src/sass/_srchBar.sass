@@ -1,0 +1,28 @@
+.searchBox
+  margin-right: 3%
+#searchBar
+  color: black
+  font-size: 25px
+  background: none
+  border: none
+
+  width: 0
+  transition: width 500ms ease-in-out
+  &:focus
+    outline: none
+#srchBtn
+  color: black
+  font-size: 25px
+  background: none
+  border: none
+  &:active
+    color: black
+  
+.searchBox:hover > #searchBar 
+  width: 200px
+  border: none
+    bottom: 1px solid black
+
+@media screen and ( max-width: 1000px  ) 
+   #searchBar
+     width: 200px

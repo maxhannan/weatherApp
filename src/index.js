@@ -1,23 +1,24 @@
 import './sass/styles.sass'
 import '@fortawesome/fontawesome-free/js/all'
-import loader from './loader'
-import testerArrow from './tesetArrow'
 import getWeather from './weatherGetter'
+import renderMainForecast from './viewControl'
 
-const app = document.querySelector('#app')
+const srchBar = document.querySelector('#searchBar')
+const srchBtn = document.querySelector('#srchBtn')
 
-const loadIcon = loader()
-app.appendChild(loadIcon)
-
-const testArrow = testerArrow()
-app.appendChild(testArrow)
-
-const weatherTest = async () => {
-  const test = prompt('test')
-  const data = await getWeather(test)
-  const rotate = `rotate(${data.daily.windDir}deg)`
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  let data
+  srchBar.style.color = 'black'
+  try {
+    data = await getWeather(srchBar.value)
+  } catch (error) {
+    srchBar.style.color = 'red'
+    console.log(error)
+    return
+  }
+  renderMainForecast(data)
+  srchBar.value = ''
   console.log(data)
-
-  document.querySelector('#arrow').style.transform = rotate
 }
-window.addEventListener('click', weatherTest)
+srchBtn.addEventListener('click', handleSubmit)

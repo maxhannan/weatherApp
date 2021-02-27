@@ -1,31 +1,98 @@
 @use 'reset'
 @use 'srchBar'
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700&display=swap')
 // variables
 $gray: #253237
 $powder:#c2dfe3
 $cadet: #5c6b73
 
 #app
-  background-color: $cadet
+  background-color: white
+  font-family: 'Chivo'
   height: 100vh
   width: 100vw
   display: flex 
+  flex-direction: column
+  align-items: flex-start
+
+header
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  width: 100vw
+  height: 10vh
+
+.icon
+  margin: 0
+  margin-right: auto
+  margin-left: 3%
+  display: flex
+  font-size: 35px
+  align-items: center
+  animation: spin 7s linear 0s infinite
+  color: #ec6e4c
+
+
+main
+  width: 100vw
+  height: 90vh
+  display: flex
   align-items: center
   justify-content: center
-  //loading icon
-  #snow
-    animation: spin 5s linear infinite
-    color: $powder
-    font-size: 17vh
-  #arrow
-    font-size: 17vh
-    color: $powder
-    transition: 2s ease
-    margin: 5%
+
+#mainForecast,#infoHolder
+  width: 50%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  padding: 5%
+  
+
+  h2
+    font-size: 50px
+    animation: appear 1000ms ease-in-out 
+  #tempReadout
+    font-size: 120px
+    animation: appear 1250ms ease-in-out 
+  #status
+     animation: appear 1500ms ease-in-out 
+#infoHolder
+  // background-color: red
 
 // loader animation
+
+#tempContainer
+  display: flex
+  align-items: center
+  font-size: 10vw
+  color: black
+@keyframes appear
+  0%
+    opacity: 0
+    transform: translateY(-1000px)
+  50%
+    transform: translateY(0px)
+  100%
+    opacity: 1
+    
+   
+
 @keyframes spin
   0%
-    transform: rotate(0deg)
+    transform: rotate()(0)
   100%
     transform: rotate(360deg)
+
+@media screen and ( max-width: 1000px  ) 
+  main
+    flex-direction: column
+  #mainForecast
+    width: 100vw
+    height: 100vw
+    align-items: center
+  #infoHolder
+    width: 100vw
+    height: 100vw
+  #tempContainer
+    justify-content: center
