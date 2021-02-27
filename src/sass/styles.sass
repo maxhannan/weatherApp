@@ -54,6 +54,10 @@ main
 
 #infoHolder
   width: 60%
+.changer
+  transition: opacity 500ms
+.hiddenTemp
+  opacity: 0
 
 h2
   font-size: 5vh
@@ -62,6 +66,7 @@ h2
 #tempReadout
   font-size:20vh
   animation: appear 750ms cubic-bezier(.6,-0.19,.76,1.4) 
+  cursor: pointer
 
 #status
   animation: appear 1000ms cubic-bezier(.6,-0.19,.76,1.4) 
@@ -117,7 +122,7 @@ h2
   100%
     transform: rotate(360deg)
 
-@media screen and ( max-width: 1000px  ) 
+@media screen and ( max-width: 1100px  ) 
   main
     flex-direction: column
   #mainForecast
@@ -141,7 +146,7 @@ h2
 
   #tempContainer
     justify-content: center
-    margin-bottom: 8%
+    margin-bottom: 40px
     margin-top: 8%
 
   .dayForecast
