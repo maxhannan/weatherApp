@@ -1,4 +1,6 @@
 import getName from './geoCode'
+import { sleep } from './viewControl'
+const spinner = document.querySelector('.icon')
 
 const apiKey = '070d5b93cd86e7baa71b2a5bf2276467'
 
@@ -15,6 +17,8 @@ const oneCall = async (coords) => {
 }
 
 const getWeather = async (city) => {
+  // toggles loading animation
+  spinner.classList.toggle('spin')
   // calls geocoding api and returns formatted address name &
   // lat and lng for weather call
   const nameData = await getName(city)
@@ -25,6 +29,9 @@ const getWeather = async (city) => {
   // calls formatting function which returns object of needed data
   const finalAnswer = weatherFormatter(info, name)
   // return final object
+  await sleep(500)
+  // toggles loading animation
+  spinner.classList.toggle('spin')
   return finalAnswer
 }
 
@@ -62,6 +69,7 @@ const weatherFormatter = (info, placeName) => {
     sevenDay: [...sevenDayForecast]
   }
   console.log(info)
+  console.log(weatherData)
   return weatherData
 }
 

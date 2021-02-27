@@ -1,7 +1,7 @@
 import './sass/styles.sass'
 import '@fortawesome/fontawesome-free/js/all'
 import getWeather from './weatherGetter'
-import renderForecast from './viewControl'
+import { renderForecast, clearScreen } from './viewControl'
 
 const srchBar = document.querySelector('#searchBar')
 const srchBtn = document.querySelector('#srchBtn')
@@ -11,6 +11,7 @@ const handleSubmit = async (e) => {
   let data
   srchBar.style.color = 'white'
   try {
+    clearScreen()
     data = await getWeather(srchBar.value)
   } catch (error) {
     srchBar.style.color = 'red'

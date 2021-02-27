@@ -4,15 +4,22 @@ const infoContainer = document.querySelector('#infoHolder')
 function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
-
+const clearScreen = () => {
+  forecastContainer.innerHTML = ''
+  infoContainer.innerHTML = ''
+}
 const renderForecast = (weatherData) => {
   const daily = weatherData.daily
   forecastContainer.innerHTML = `
+  <br>
   <div id="tempContainer">
     <h1 id = 'tempReadout'>${daily.tempF + '<span style = "color: #ec6e4c">°</span>f'}</h1>
     <img id = 'status' src=${daily.iconSrc} alt="" >
   </div>
+  <br>
   <h2 id = 'weatherDescrip' style ='color: #ec6e4c'>${daily.descrip}</h2>
+  <br>
+  <h2 id = ''>${weatherData.sevenDay[0].lowF}°f  /  ${weatherData.sevenDay[0].highF}°f</h2>
   <br>
   <h2 id = 'location'>${daily.location}</h2>
   `
@@ -20,7 +27,6 @@ const renderForecast = (weatherData) => {
 }
 
 const renderSevenDayForecast = async (weatherData) => {
-  infoContainer.innerHTML = ''
   const sevenDays = weatherData.sevenDay
   for (let i = 1; i < sevenDays.length; i++) {
     const dayDisplay = document.createElement('div')
@@ -43,4 +49,8 @@ const renderSevenDayForecast = async (weatherData) => {
     await sleep(100)
   }
 }
-export default renderForecast
+export {
+  renderForecast,
+  sleep,
+  clearScreen
+}
