@@ -29,7 +29,7 @@ header
   display: flex
   font-size: 35px
   align-items: center
-  // animation: spin 7s linear 0s infinite
+  animation: spin 7s linear 0s infinite
   color: #ec6e4c
 
 
@@ -45,38 +45,65 @@ main
   height: 100%
   display: flex
   flex-direction: column
+  align-items: flex-start
   justify-content: center
   padding: 5%
-  
 
   h2
     font-size: 50px
-    animation: appear 1000ms ease-in-out 
+    animation: appear 500ms cubic-bezier(.6,-0.19,.76,1.4)
+
   #tempReadout
-    font-size: 120px
-    animation: appear 1250ms ease-in-out 
+    font-size: 125px
+    animation: appear 750ms cubic-bezier(.6,-0.19,.76,1.4) 
+
   #status
-     animation: appear 1500ms ease-in-out 
-#infoHolder
-  // background-color: red
-
-// loader animation
-
+    animation: appear 1000ms cubic-bezier(.6,-0.19,.76,1.4) 
+  
 #tempContainer
   display: flex
   align-items: center
   font-size: 10vw
   color: black
+
+  height: 150px
+
+.dayForecast
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 150px
+  width: 100%
+  animation: appear 1000ms cubic-bezier(.6,-0.19,.76,1.4)
+
+  #sevenDay
+    width: 25%
+
+  #sevenHiLo
+    width: 30%
+
+  #descripW
+    color: #ec6e4c
+    width: 40%
+
+  #sevenDay, #sevenHiLo, #sevenicon, #descripW
+    align-items: center
+    justify-content: center
+  #iconW
+    max-height: 50px
+
+  h3
+    font-size: 20px
+
+
 @keyframes appear
   0%
     opacity: 0
-    transform: translateY(-1000px)
-  50%
-    transform: translateY(0px)
+    transform: scale(0)
+
   100%
     opacity: 1
-    
-   
+    transform: scale(1)
 
 @keyframes spin
   0%
@@ -84,15 +111,24 @@ main
   100%
     transform: rotate(360deg)
 
-@media screen and ( max-width: 1000px  ) 
+
+@media screen and ( max-width: 768px  ) 
   main
     flex-direction: column
   #mainForecast
     width: 100vw
-    height: 100vw
-    align-items: center
+    height: 35vh
+    align-items: flex-start
+    h2
+      font-size: 30px
+    #tempReadout
+      font-size: 90px
+    #status
+      max-height: 110px
   #infoHolder
     width: 100vw
-    height: 100vw
+    height: 65vh
+    align-items: center
+    justify-content: center
   #tempContainer
     justify-content: center

@@ -21,4 +21,10 @@ const handleSubmit = async (e) => {
   srchBar.value = ''
   console.log(data)
 }
+// inital pageLoad Function
+const pageLoad = async () => {
+  const data = await getWeather('Minneapolis')
+  renderMainForecast(data)
+}
+pageLoad()
 srchBtn.addEventListener('click', handleSubmit)
