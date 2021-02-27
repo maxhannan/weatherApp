@@ -4,6 +4,8 @@ A weather app built with modular es6 Js, and sass.
 
 Live at (https://substanceseven.com/weatherApp/)
 
+## Demo Image
+![plot](./demo.png)
 ## Built With
 
 * [Webpack](http://www.dropwizard.io/1.0.2/docs/) - Dependency Management
