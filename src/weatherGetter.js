@@ -3,7 +3,7 @@ import getName from './geoCode'
 const apiKey = '070d5b93cd86e7baa71b2a5bf2276467'
 let lat, lon
 const initalCall = async (city) => {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`
   const response = await fetch(url, { mode: 'cors' })
   const data = await response.json()
   const d = oneCall(data.coord)
