@@ -66,7 +66,7 @@ const weatherFormatter = (info, placeName) => {
 }
 
 // HELPER FUNCTIONS
-const weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const toCelsius = (K) => Math.floor(K - 273.15)
 const toFahrenheit = (K) => Math.floor(toCelsius(K) * (9 / 5) + 32)
 const getDay = (date) => new Date(date * 1000) // converts unix timestamp to date

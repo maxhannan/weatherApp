@@ -5,7 +5,7 @@ function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-const renderMainForecast = (weatherData) => {
+const renderForecast = (weatherData) => {
   const daily = weatherData.daily
   forecastContainer.innerHTML = `
   <div id="tempContainer">
@@ -43,4 +43,4 @@ const renderSevenDayForecast = async (weatherData) => {
     await sleep(100)
   }
 }
-export default renderMainForecast
+export default renderForecast

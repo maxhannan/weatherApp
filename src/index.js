@@ -1,7 +1,7 @@
 import './sass/styles.sass'
 import '@fortawesome/fontawesome-free/js/all'
 import getWeather from './weatherGetter'
-import renderMainForecast from './viewControl'
+import renderForecast from './viewControl'
 
 const srchBar = document.querySelector('#searchBar')
 const srchBtn = document.querySelector('#srchBtn')
@@ -9,7 +9,7 @@ const srchBtn = document.querySelector('#srchBtn')
 const handleSubmit = async (e) => {
   e.preventDefault()
   let data
-  srchBar.style.color = 'black'
+  srchBar.style.color = 'white'
   try {
     data = await getWeather(srchBar.value)
   } catch (error) {
@@ -17,14 +17,14 @@ const handleSubmit = async (e) => {
     console.log(error)
     return
   }
-  renderMainForecast(data)
+  renderForecast(data)
   srchBar.value = ''
   console.log(data)
 }
 // inital pageLoad Function
 const pageLoad = async () => {
   const data = await getWeather('Minneapolis')
-  renderMainForecast(data)
+  renderForecast(data)
 }
 pageLoad()
 srchBtn.addEventListener('click', handleSubmit)
